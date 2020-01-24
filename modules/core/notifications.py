@@ -1,5 +1,6 @@
 from modules.core.events import Events
-
+from modules.core.slack import Slack
+from modules.core.mail import Mail
 
 class Notifications:
 
@@ -11,13 +12,11 @@ class Notifications:
 
     # Send information to slack
     def slack(self, payload):
-        pass
-        #print("Sent to slack", payload)
+        Slack().broadcast(payload)
 
     # Send information to an email
     def email(self, payload):
-        pass
-        #print("Sent to email", payload)
+        Mail().broadcast(payload)
 
     # Store information in the database
     def database(self, payload):
