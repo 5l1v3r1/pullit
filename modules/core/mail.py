@@ -1,6 +1,6 @@
 class Mail:
 
-    # Mal constructor
+    # Mail constructor
     def __init__(self):
         pass
 

@@ -9,9 +9,11 @@ THREADS: 50
 SQLITE: 'harvested.sqlite'
 
 ######################
-# Slack api tokens
+# Slack information
 ######################
-SLACK_API: ''
+SLACK:
+    api: '1234'
+    channel: 'pullit'
 
 ######################
 # SMTP information
@@ -31,10 +33,10 @@ GITHUB_TOKENS:
   - "1234"
 
 ######################
-# File whitelists etc
+# Whitelist/Blacklist
 ######################
-FILE_BLACKLIST:
-  - .txt
+FILES:
+    blacklisted: ['.exe']
 
 ######################
 # metadata to find

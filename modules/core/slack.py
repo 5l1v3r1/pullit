@@ -1,6 +1,6 @@
 class Slack:
 
-    # Mal constructor
+    # Slack constructor
     def __init__(self):
         pass
 

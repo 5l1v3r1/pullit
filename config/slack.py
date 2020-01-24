@@ -3,8 +3,8 @@ from modules.core.config import *
 
 class Slack:
 
-    # Return the slack token
+    # Return the slack config
     @staticmethod
-    def token():
-        return config['SLACK_API']
+    def get():
+        return config['SLACK']
 
