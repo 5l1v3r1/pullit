@@ -6,6 +6,7 @@ class Git:
 
     # Clone a git repo
     # todo maybe use python
+    # Or does github allow us to directly view files, that way not cloning??
     @staticmethod
     def clone(name, url):
         os.system("git clone --single-branch --no-tags --depth 1 %s /tmp/pullit/git/%s > /dev/null 2>&1" % (url, name))
