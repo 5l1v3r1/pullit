@@ -11,7 +11,7 @@ class Boot:
 
     # Boot constructor
     def __init__(self):
-        self.database = Sqlite.get(Sqlite)
+        # self.database = Sqlite().get()
         self.config = yaml.safe_load(open('./config.yml'))
         self.notifications = Notifications()
 
