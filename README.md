@@ -10,7 +10,7 @@ Pullit is a real-time credential finder.
 - ``` sudo chmod +x install.sh  ```
 - ``` . ./install.sh ```
 - ``` cp config.example.yml config.yml ```
-- Edit your metadata or add more, the run:
+- Edit your metadata or add more, then run:
 - ``` python ./pullit.py  ```
 
 
