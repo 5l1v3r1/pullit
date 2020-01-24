@@ -1,4 +1,5 @@
 config.yml
+harvested.sqlite
 .idea
 modules/core/__pycache__
 config/__pycache__
