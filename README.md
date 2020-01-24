@@ -23,7 +23,10 @@ Pullit is a real-time credential finder.
 
 
 - search for meta specific: for example if you're only using this for twitter specific apis, then allow the user to search repos "twitter" to narrow results
-- Check rate limiting
+- Rate limiting:
+    - Check current token's rate limit
+    - If it has expired, move on to the next token
+    - If all tokens are rate-limited, print a message "We recommend you create and add another token"
 - Slack notifications
 - Email notifications
 - Save to sqlite file for example: <br>
