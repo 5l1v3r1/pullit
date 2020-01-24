@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-from modules.github.authenticate import Authenticate
 from modules.core.git import Git
 from config.metadata import Metadata
 from modules.core.file import File
 from modules.core.boot import Boot
+from modules.github.repositories import Repositories
 from config.threads import Threads
 from functools import partial
 from multiprocessing import Pool
@@ -25,7 +25,7 @@ class Pullit:
 
     # Pullit constructor
     def __init__(self):
-        self.auth = Authenticate().get()
+        self.repositories = Repositories()
 
     # Find credentials
     @staticmethod
@@ -49,9 +49,13 @@ class Pullit:
     def main(self):
         # Pool connections to speed up our job
         with Pool(processes=Threads.get()) as pool:
-            while True:
-                function = partial(self.find)
-                pool.map(function, list(self.auth.get_repos()[:Threads.get()]))
+            repos = []
+            for repo in self.repositories.get():
+                repos.append(repo)
+                if len(repos) >= Threads.get():
+                    function = partial(self.find)
+                    pool.map(function, repos)
+                    repos.clear()
 
 
 # Pullit logo
