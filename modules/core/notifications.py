@@ -14,3 +14,12 @@ class Notifications:
         pass
         #print("Sent to slack", payload)
 
+    # Send information to an email
+    def email(self, payload):
+        pass
+        #print("Sent to email", payload)
+
+    # Store information in the database
+    def database(self, payload):
+        pass
+        #print("Stored in the database", payload)

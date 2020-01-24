@@ -1,7 +1,7 @@
 ######################
 # Threads to use
 ######################
-THREADS: 100
+THREADS: 50
 
 ######################
 # Slack api tokens
