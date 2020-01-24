@@ -5,7 +5,7 @@ from shutil import rmtree
 class Git:
 
     # Clone a git repo
-    # todo my]aybe use python
+    # todo maybe use python
     @staticmethod
     def clone(name, url):
         os.system("git clone --single-branch --no-tags --depth 1 %s /tmp/pullit/git/%s > /dev/null 2>&1" % (url, name))
