@@ -9,16 +9,17 @@ class File:
         self.repo = repo
 
     # Find a file by its content
-    def find_by_content(self, pattern):
+    def find_by_content(self, patterns):
         for file in glob.glob("/tmp/pullit/git/%s/**/*.*" % self.repo.full_name, recursive=True):
             try:
                 with open(file) as f:
                     try:
                         for line in f:
-                            for found in re.finditer(pattern, line):
-                                information = "File: %s contains: %s" % (file, found.string)
-                                print(information)
-                                Events.emit(Events, 'regex-found', information)
+                            for pattern in patterns:
+                                for found in re.finditer(pattern, line):
+                                    information = "File: %s contains: %s" % (file, found.string)
+                                    print(information)
+                                    Events.emit(Events, 'regex-found', information)
                     except UnicodeDecodeError:
                         return
             except IsADirectoryError:
