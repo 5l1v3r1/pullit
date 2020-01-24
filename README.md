@@ -2,7 +2,7 @@
 
 Pullit is a real-time credential finder. 
 
-<img src="https://i.imgur.com/yartJ8d.png">
+<img src="https://i.imgur.com/PUx1oiG.png">
 
 ### Installation
 
