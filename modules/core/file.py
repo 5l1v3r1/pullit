@@ -24,6 +24,8 @@ class File:
                         return
             except IsADirectoryError:
                 return
+            except FileNotFoundError:
+                return
 
     # Find a file by its extension
     def find_by_extension(self, match):

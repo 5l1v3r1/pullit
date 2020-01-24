@@ -11,5 +11,5 @@ class Git:
     # Delete the repo
     @staticmethod
     def delete(name):
-        os.system("rm -rf /tmp/pullit/git/%s > /dev/null 2>&1" % name)
+        os.system("rm -rf /tmp/pullit/git/%s > /dev/null" % name)
 
