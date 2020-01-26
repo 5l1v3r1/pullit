@@ -4,7 +4,6 @@ from modules.core.mail import Mail
 from modules.github.repositories import Repositories
 from modules.core.database import Database
 from config.database import Database as Config
-import json
 
 
 class Notifications:
@@ -15,12 +14,15 @@ class Notifications:
         self.github = Repositories()
         self.connection = Database().get()
         Events.listen(Events, 'checked-repo', self.checked)
-        Events.listen(Events, 'regex-found', self.slack)
-        Events.listen(Events, 'extension-found', self.slack)
-        Events.listen(Events, 'filename-found', self.slack)
-        Events.listen(Events, 'regex-found', self.found)
-        Events.listen(Events, 'extension-found', self.found)
-        Events.listen(Events, 'filename-found', self.found)
+        Events.listen(Events, 'regex-found', self.notify)
+        Events.listen(Events, 'extension-found', self.notify)
+        Events.listen(Events, 'filename-found', self.notify)
+
+    # Slack/Email/Database
+    def notify(self, payload):
+        self.slack(payload)
+        self.email(payload)
+        self.found(payload)
 
     # Send information to slack
     def slack(self, payload):

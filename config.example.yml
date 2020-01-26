@@ -10,13 +10,15 @@ DATABASE:
     name: 'harvested'
     save_checked: True
     save_found: True
+    enabled: True
 
 ######################
 # Slack information
 ######################
 SLACK:
-    api: '1234'
+    token: '1234'
     channel: 'pullit'
+    enabled: True
 
 ######################
 # SMTP information

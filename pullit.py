@@ -33,6 +33,10 @@ class Pullit:
     # Find credentials
     @staticmethod
     def find(repo):
+
+        # todo
+        # Database.done(repo)
+
         # Clone the repo
         Git.clone(repo, "https://github.com/%s.git" % repo)
 
@@ -45,6 +49,9 @@ class Pullit:
             elif metadata['type'] == 'filename':
                 File(repo).find_by_name(metadata)
 
+        # todo
+        # Database.checked(repo)
+        
         # Delete the repo
         Git.delete(repo)
 

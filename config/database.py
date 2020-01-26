@@ -8,6 +8,11 @@ class Database:
     def database():
         return "%s.sqlite" % config['DATABASE']['name']
 
+    # Is it enabled?
+    @staticmethod
+    def enabled():
+        return config['DATABASE']['enabled']
+
     # Should we save checked repos?
     @staticmethod
     def save_checked():

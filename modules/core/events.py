@@ -10,10 +10,12 @@ class Events:
     # Listen for event
     @staticmethod
     def listen(self, name, handler):
-        self.subscribers[name] = handler
+        self.subscribers[name] = []
+        self.subscribers[name].append(handler)
 
     # Emit an event
     @staticmethod
     def emit(self, name, payload):
-        self.subscribers[name](payload)
+        for event in self.subscribers[name]:
+            event(payload)
 
