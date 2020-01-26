@@ -24,7 +24,6 @@ Pullit is a real-time credential finder.
 ### todo:
 
 
-- search for meta specific: for example if you're only using this for twitter specific apis, then allow the user to search repos "twitter" to narrow results
 - Rate limiting:
     - Check current token's rate limit
     - If it has expired, move on to the next token

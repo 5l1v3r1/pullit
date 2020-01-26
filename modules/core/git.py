@@ -15,7 +15,7 @@ class Git:
     @staticmethod
     def delete(name):
         try:
-            rmtree("/tmp/pullit/git/%s" % name)
+            rmtree("/tmp/pullit/git/%s" % name, ignore_errors=True)
         except FileNotFoundError:
             # I don't know why it would throw this but it does
             return

@@ -4,9 +4,12 @@
 THREADS: 50
 
 ######################
-# SQLITE Database
+# Database information
 ######################
-SQLITE: 'harvested.sqlite'
+DATABASE:
+    name: 'harvested'
+    save_checked: True
+    save_found: True
 
 ######################
 # Slack information
@@ -37,6 +40,12 @@ GITHUB_TOKENS:
 ######################
 FILES:
     blacklisted: ['.exe']
+
+######################
+# Search keywords
+######################
+KEYWORDS:
+    - twitter
 
 ######################
 # metadata to find
