@@ -14,6 +14,13 @@ Pullit is a real-time credential finder.
 - ``` python ./pullit.py  ```
 
 
+
+### Features
+
+- Find Github credentials
+- Save credentials to database
+- Post credentials to slack
+
 ### Modules:
 
 - Github
@@ -28,7 +35,6 @@ Pullit is a real-time credential finder.
     - Check current token's rate limit
     - If it has expired, move on to the next token
     - If all tokens are rate-limited, print a message "We recommend you create and add another token"
-- Slack notifications
 - Email notifications
 - Credentials:
     - Use selector to show just the credentials rather than (twitter_api_key=12345), because we can use 'name' column in database 

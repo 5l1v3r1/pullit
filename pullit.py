@@ -51,7 +51,7 @@ class Pullit:
 
         # todo
         # Database.checked(repo)
-        
+
         # Delete the repo
         Git.delete(repo)
 
