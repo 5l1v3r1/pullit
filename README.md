@@ -30,17 +30,10 @@ Pullit is a real-time credential finder.
     - If all tokens are rate-limited, print a message "We recommend you create and add another token"
 - Slack notifications
 - Email notifications
-- Save to sqlite file for example: <br>
-    1. repos:
-        - id
-        - repo_name (name of the repo)
-        - scanned_at (when we last scanned it)
-        - commit_id (id of the commit so we don't scan again)
-    2. credentials:
-        - id
-        - repo_id (repo we scanned and found creds)
-        - match (what metadata was used)
-        - name (name of the metadata)
-        - credentials (json object of the credentials/location)
-- more metadata to search for
-- maybe if credentials are found, keep a local copy of the repo???
+- Credentials:
+    - Use selector to show just the credentials rather than (twitter_api_key=12345), because we can use 'name' column in database 
+    - merge the credentials together, api_key=(...) api_secret(...)
+- Database:
+    - Better database management, don't run queries individually, run in bulk...
+    - Check if repo has already been checked
+    - Add commit id to database
