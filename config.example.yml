@@ -38,10 +38,12 @@ GITHUB_TOKENS:
   - "1234"
 
 ######################
-# Whitelist/Blacklist
+# Blacklisted files
 ######################
 FILES:
-    blacklisted: ['.exe']
+    blacklisted:
+        extensions: ['exe', 'zip', 'rar', 'png', 'jpg', 'gif']
+        paths: ['node_modules', 'vendor']
 
 ######################
 # Search keywords
