@@ -58,7 +58,7 @@ class Pullit:
     # Run on all repos
     def all(self, pool):
         for repo in self.repositories.all():
-            self.repos.append(repo)
+            self.repos.append(repo.full_name)
             if len(self.repos) >= Threads.get():
                 function = partial(self.find)
                 pool.map(function, self.repos)

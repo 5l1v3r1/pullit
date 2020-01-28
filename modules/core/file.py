@@ -1,5 +1,6 @@
-import glob, re, json
+import glob, os, re, json
 from modules.core.events import Events
+from config.files import Files
 
 
 class File:
@@ -11,25 +12,27 @@ class File:
 
     # Find a file by its content
     def find_by_content(self, metadata):
-        for file in glob.glob("/tmp/pullit/git/%s/**/*.*" % self.repo, recursive=True):
-            try:
-                with open(file) as f:
-                    try:
-                        for line in f:
-                            for pattern in metadata['match']:
-                                for found in re.finditer(pattern, line):
-                                    meta = {
-                                        'name': metadata['name'],
-                                        'match': pattern,
-                                        'content': found.string
-                                    }
-                                    self.found(meta, 'regex-found')
-                    except UnicodeDecodeError:
-                        return
-            except IsADirectoryError:
-                return
-            except FileNotFoundError:
-                return
+        for root, dirs, files in os.walk("/tmp/pullit/git/%s" % self.repo):
+            for file in files:
+                for extension in Files.extensions():
+                    if file.endswith(extension):
+                        break
+                try:
+                    with open(file) as f:
+                        try:
+                            for line in f:
+                                for pattern in metadata['match']:
+                                    for found in re.finditer(pattern, line):
+                                        meta = {
+                                            'name': metadata['name'],
+                                            'match': pattern,
+                                            'content': found.string
+                                        }
+                                        self.found(meta, 'regex-found')
+                        except:
+                            break
+                except:
+                    break
 
     # Find a file by its extension
     def find_by_extension(self, metadata):
@@ -53,7 +56,7 @@ class File:
 
     # We have found matching metadata
     def found(self, metadata, event):
-        information = "Repo: %s contains: %s" % (self.repo, metadata['content'])
+        information = "%s" % metadata['content']
         payload = {
             'name': metadata['name'],
             'match': metadata['match'],

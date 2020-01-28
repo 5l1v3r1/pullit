@@ -12,7 +12,7 @@ class Slack:
     def broadcast(self, payload):
         if not Config.enabled():
             return
-        
+
         message = "Method: %s \n Matches: %s \n Found Credentials: %s \n Repository: %s" % (
             payload['name'],
             payload['match'],
@@ -25,5 +25,5 @@ class Slack:
                 text=message,
             )
         except Exception as e:
-            print(e)
+            return
 

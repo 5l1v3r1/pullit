@@ -6,4 +6,5 @@ class Mail:
 
     # Broadcast a message to an email
     def broadcast(self, message):
-        print("Posted message", message)
+        pass
+        # print("Posted message", message)
