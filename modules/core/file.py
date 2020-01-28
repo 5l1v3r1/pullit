@@ -19,7 +19,6 @@ class File:
                         break
                 try:
                     with open(os.path.join(root, file), 'r') as f:
-                        print(f)
                         try:
                             for line in f:
                                 for pattern in metadata['match']:
@@ -31,7 +30,6 @@ class File:
                                         }
                                         self.found(meta, 'regex-found')
                         except Exception as e:
-                            print(e)
                             break
                 except:
                     break
