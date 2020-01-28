@@ -18,7 +18,8 @@ class File:
                     if file.endswith(extension):
                         break
                 try:
-                    with open(file) as f:
+                    with open(os.path.join(root, file), 'r') as f:
+                        print(f)
                         try:
                             for line in f:
                                 for pattern in metadata['match']:
@@ -29,7 +30,8 @@ class File:
                                             'content': found.string
                                         }
                                         self.found(meta, 'regex-found')
-                        except:
+                        except Exception as e:
+                            print(e)
                             break
                 except:
                     break

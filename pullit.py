@@ -60,6 +60,7 @@ class Pullit:
         for repo in self.repositories.all():
             self.repos.append(repo.full_name)
             if len(self.repos) >= Threads.get():
+                print(self.repos)
                 function = partial(self.find)
                 pool.map(function, self.repos)
                 self.repos.clear()
@@ -70,6 +71,7 @@ class Pullit:
             for repo in self.repositories.search(keyword):
                 self.repos.append(repo.full_name)
                 if len(self.repos) >= Threads.get():
+                    print(self.repos)
                     function = partial(self.find)
                     pool.map(function, self.repos)
                     self.repos.clear()
